@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [[1,2,3],[4,5,6],[7,8,9]];
+        function rotateMatrix(mat) {
+            let N = mat.length;
+            for (let i = 0; i < N / 2; i++) {
+                for (let k = i; k < N - i - 1; k++) {
+                    let temp = mat[i][k];
+                    mat[i][k] = mat[k][N - 1 - i];
+                    mat[k][N - 1 - i] = mat[N - 1 - i][N - 1 - k];
+                    mat[N - 1 - i][N - 1 - k] = mat[N - 1 - k][i];
+                    mat[N - 1 - k][i] = temp;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

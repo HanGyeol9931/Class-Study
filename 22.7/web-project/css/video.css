@@ -1,0 +1,55 @@
+#honeyvideo {
+    position: relative;
+    z-index: 1;
+}
+
+::-webkit-scrollbar {
+    display: none;  
+}
+
+.textBox {
+    color: #ffbb2e;
+    font-size: 20px;
+    margin-left: 10%;
+    top: 530px;
+    z-index: 2;
+    position: absolute;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+.text1 {
+    font-weight: 800;
+    font-size: 80px;
+}
+
+.text2 {
+    font-weight: 600;
+}
+
+.videoWrap {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#playvideo {
+    transform: translateY(-13.542vw);
+}
+
+.btnMore {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+}
+
+section {
+    background-color: #ffbb2e;
+    width: 100%;
+    height: 500px;
+    color: #fff;
+}
+
+body {
+    overflow-x: hidden;
+}

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="138" height="136.5" viewBox="0 0 138 136.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b75705;
+      }
+
+      .cls-2 {
+        fill: #d5711b;
+      }
+
+      .cls-3 {
+        fill: #f58220;
+      }
+
+      .cls-4, .cls-6, .cls-8 {
+        fill: none;
+      }
+
+      .cls-4, .cls-6 {
+        stroke: #fff;
+      }
+
+      .cls-4 {
+        stroke-width: 0.5px;
+        opacity: 0.3;
+      }
+
+      .cls-5 {
+        opacity: 0.05;
+      }
+
+      .cls-6 {
+        stroke-linecap: round;
+        stroke-width: 10px;
+      }
+
+      .cls-7 {
+        stroke: none;
+      }
+
+      .cls-9 {
+        filter: url(#선_8);
+      }
+
+      .cls-10 {
+        filter: url(#선_7);
+      }
+
+      .cls-11 {
+        filter: url(#사각형_700);
+      }
+
+      .cls-12 {
+        filter: url(#사각형_719);
+      }
+    </style>
+    <filter id="사각형_719" x="8" y="12" width="114" height="112.5" filterUnits="userSpaceOnUse">
+      <feOffset dx="6" dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="사각형_700" x="0" y="0" width="138" height="136.5" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="선_7" x="37.23" y="12.5" width="12" height="22" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur-3"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="선_8" x="71.55" y="12.5" width="12" height="22" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur-4"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="date-bg" transform="translate(20 17.5)">
+    <g class="cls-12" transform="matrix(1, 0, 0, 1, -20, -17.5)">
+      <rect id="사각형_719-2" data-name="사각형 719" class="cls-1" width="78" height="76.5" rx="15" transform="translate(20 24)"/>
+    </g>
+    <rect id="사각형_718" data-name="사각형 718" class="cls-2" width="78" height="76.5" rx="15" transform="translate(0 4.5)"/>
+    <g class="cls-11" transform="matrix(1, 0, 0, 1, -20, -17.5)">
+      <rect id="사각형_700-2" data-name="사각형 700" class="cls-3" width="78" height="76.5" rx="15" transform="translate(20 20)"/>
+    </g>
+    <g id="사각형_706" data-name="사각형 706" class="cls-4" transform="translate(5 7.5)">
+      <rect class="cls-7" width="68" height="66.5" rx="10"/>
+      <rect class="cls-8" x="0.25" y="0.25" width="67.5" height="66" rx="9.75"/>
+    </g>
+    <path id="사각형_705" data-name="사각형 705" class="cls-5" d="M15,0H63A15,15,0,0,1,78,15V26a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V15A15,15,0,0,1,15,0Z" transform="translate(0 2.5)"/>
+    <g class="cls-10" transform="matrix(1, 0, 0, 1, -20, -17.5)">
+      <line id="선_7-2" data-name="선 7" class="cls-6" y2="10" transform="translate(42.23 17.5)"/>
+    </g>
+    <g class="cls-9" transform="matrix(1, 0, 0, 1, -20, -17.5)">
+      <line id="선_8-2" data-name="선 8" class="cls-6" y2="10" transform="translate(76.55 17.5)"/>
+    </g>
+  </g>
+</svg>

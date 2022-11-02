@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>룰렛</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    #app {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        /* justify-content: space-around; */
+        height: 80%;
+        /* margin-top: 100px; */
+        animation: fadein 1s ease-in-out;
+    }
+
+    .main{
+        padding-top: 100px;
+    }
+
+    .roulette-outer {
+        position: relative;
+        overflow: hidden;
+        width: 500px;
+        height: 500px;
+        font-size: 2em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .roulette-outer>.roulette {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+        /* background: #ffbb2e; */
+        background: #fff;
+        border-radius: 50%;
+        border: 2px solid black;
+    }
+
+    .roulette-outer>.roulette-pin {
+        position: absolute;
+        top: 4%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 35px 5px 0 5px;
+        border-color: orangered transparent transparent transparent;
+        margin-left: -5px;
+        z-index: 1;
+    }
+
+    .roulette-outer>.roulette>.item-wrapper>.item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding-top: 10%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .roulette-outer>.roulette>.line-wrapper>.line {
+        position: absolute;
+        top: 0;
+        bottom: 50%;
+        left: 50%;
+        width: 2px;
+        margin-left: -1px;
+        background: black;
+        transform-origin: bottom;
+    }
+
+    .roulette-outer>.roulette {
+        /* 도는 속도 */
+        transition: transform 5s ease-in-out; 
+    }
+
+
+    .showResult{
+        width: 500px;
+        height: 500px;
+        /* margin: 0 auto; */
+        /* padding: 25px; */
+        /* border: 1px solid gray; */
+        overflow: auto;
+        margin-top: 100px;
+        
+    }
+    /* .main-line{
+        height: 800px;
+        border-left:2px solid royalblue ;
+    } */
+    .showResult li{
+        /* 글씨 나타나는 속도 */
+        margin: 15px;
+        font-size: 1.5em;
+        animation: fadein 1s ease-in-out;
+        }
+
+    @keyframes fadein{
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+    ::-webkit-scrollbar {
+        display: none;  
+    }
+    .result_position{
+        height: 100%;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+    .result-value{
+
+        font-size: 2em;
+    }
+    .result_title{
+        margin-bottom: 30px;
+        font-size: 3em;
+    }
+    .back_result{
+        margin-left: 20px;
+    }
+    .hide{
+        display: none;
+    }
+    #app button{
+        position: relative;
+        top: 50px;
+    }
+</style>
+
+<body>
+    <div id="headerwrap">
+        <div id="header">
+            <a href="/main.html"><img src="../logo/logo.png" height="70px"></a>
+            <div id="nav">
+                <div class="dropdown">
+                    <button class="ddBtn">꿀단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/ten.html">10대 꿀단지</a>
+                        <a href="../html/twenty.html">20대 꿀단지</a>
+                        <a href="../html/thirty.html">30대 꿀단지</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">게임단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/game.html">꿀벌게임</a>
+                        <a href="../html/roulette.html">룰렛게임</a>
+                        <a href="#">(준비중)</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">알림단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/calendar.html">정보 캘린더</a>
+                        <a href="../html/event.html">행사 안내</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">문의하기</button>
+                    <div class="dropdown-content">
+                        <a href="../html/qna.html">자주하는 질문</a>
+                    </div>
+                </div>
+            </div>
+            <div class="userIcon">
+                <img src="../icon/main_menu.png">
+                <ul class="dropdown-content">
+                    <a href="../loghtml/log.html">로그인</a>
+                    <a href="../loghtml/membership.html">회원가입</a>
+                    <a href="../loghtml/myPage.html">마이페이지</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="app">
+        <div class="main">
+            <h1>돌려 돌려 돌림판</h1>
+            <div class="roulette-outer">
+                <div class="roulette-pin"></div>
+                <div class="roulette" v-bind:style="rouletteStyle">
+                    <div class="item-wrapper">
+                        <!--v-for="(변수, 순서) in 데이터" 형식으로 작성하면 데이터에 존재하는값들을 반복적으로 변수로 옮기며 태그 생성함-->
+                        <div class="item" v-for="(item, index) in items" v-bind:style="itemStyles[index]">{{item.value}}
+                        </div>
+                    </div>
+                    <div class="line-wrapper">
+                        <div class="line" v-for="(item, index) in items" v-bind:style="lineStyles[index]"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="play-btn" v-on:click="play" v-bind:disabled="buttonDisabled">START</button>
+            <button class="back_result" Disabled>이전 결과 보기</button>
+        </div>
+        <div class="result_position">
+            <div class="result_title">결과</div>
+            <div class="result">
+                <div class="result-value">
+                </div>
+            </div>
+        </div>
+            <div class="show hide">
+                <ul class="showResult">
+                    <li class="dado" v-for="(h, idx) in history">{{h}}</li>
+                </ul>
+                <button class="back-return">돌아기가</button>
+            </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        { value: "삼각김밥" },
+                        { value: "짜장면" },
+                        { value: "치킨" },
+                        { value: "노브랜드" },
+                        { value: "먹지말기" },
+                        { value: "샐러디" },
+                        { value: "고구마" },
+                    ],
+                    itemStyles: [],
+                    lineStyles: [],
+                    current: 0,
+                    count: 0,
+                    history: [],
+                    buttonDisabled: false,
+                };
+            },
+            computed: {
+                segment() {
+                    return 360 / this.items.length;
+                },
+                offset() {
+                    return this.segment / 2;
+                },
+                angle() {
+                    // return -this.current*this.segment; //정가운데 멈춤
+                    let temp = this.current * this.segment;
+                    let randomOffset = Math.floor(Math.random() * this.segment) - this.offset - 1;
+                    let cycle = this.count * 360 * 5; //5바퀴
+                    return -(temp + randomOffset + cycle); //랜덤 변화
+                },
+                rouletteStyle() {
+                    return {
+                        "transform": "rotate(" + this.angle + "deg)"
+                    };
+                },
+                currentItem() {
+                    return this.items[this.current];
+                },
+            },
+            methods: {
+                play() {
+                    this.buttonDisabled = true;
+                    this.count++;
+                    this.current = Math.floor(Math.random() * this.items.length);
+                    console.log(this.currentItem.value)
+                    setTimeout(() => {
+                        this.history.push(this.currentItem.value);
+                        this.buttonDisabled = false;
+                    }, 4980);
+                },
+            },
+            created() {
+                this.items.forEach((el, idx) => {
+                    //itemStyles 정의
+                    this.itemStyles.push({
+                        "transform": "rotate(" + (this.segment * idx) + "deg)",
+                    });
+                    //lineStyles 정의
+                    this.lineStyles.push({
+                        "transform": "rotate(" + (this.segment * idx + this.offset) + "deg)"
+                    });
+                });
+            },
+        }).mount("#app");
+        let num = 1
+        document.querySelector(".play-btn").onclick = function(){
+            document.querySelector(".back_result").disabled = true;
+            setTimeout(()=>{
+                document.querySelector(".result-value").innerHTML = document.querySelectorAll(".dado")[document.querySelectorAll("li").length-1].innerHTML
+                document.querySelector(".back_result").disabled = false;
+            },4990)
+            setTimeout(()=>{
+                document.querySelectorAll(".dado")[document.querySelectorAll("li").length-1].innerHTML= num+"회"+"&nbsp"+document.querySelectorAll(".dado")[document.querySelectorAll("li").length-1].innerHTML;
+                num++
+                
+            },5000)
+            
+        }   
+        document.querySelector(".back_result").onclick = function(){
+            document.querySelector(".main").classList.add("hide")
+            document.querySelector(".result_position").classList.add("hide")
+            document.querySelector(".show").classList.remove("hide")
+        }
+        document.querySelector(".back-return").onclick = function(){
+            document.querySelector(".main").classList.remove("hide")
+            document.querySelector(".result_position").classList.remove("hide")
+            document.querySelector(".show").classList.add("hide")
+        }
+
+    </script>
+</body>
+
+</html>

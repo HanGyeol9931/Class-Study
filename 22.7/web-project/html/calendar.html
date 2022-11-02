@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보 캘린더</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/button.css">
+
+</head>
+<style> 
+    .selectByUser {
+        width: 1000px;
+        height: 750px;
+        background: url(../img/memo.jpg) center no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;  
+    }
+
+    #selectList{
+        text-align: center;
+        height: 300px;
+        width: 450px;
+        position: relative;
+        right: 20px;
+        top : 200px;
+        /* padding: 290px 0 0 320px; */
+        font-size: 1.2em;
+        overflow: auto;
+        
+    }
+    
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+    }
+    /* 달력 */
+    .rap {
+        margin: 0 auto;
+        width: 100%;
+        padding-top: 120px;
+        display: flex;
+    }
+
+    .dateHead {
+        margin-bottom: .4rem;
+    }
+
+    .dateHead div {
+        background: #ffbb2e;
+        color: #222;
+        text-align: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 5px;
+    }
+
+    .grid div {
+        padding: .6rem;
+        font-size: .9rem;
+        cursor: pointer;
+    }
+
+    .dateBoard div {
+        color: #222;
+        font-weight: bold;
+        min-height: 6rem;
+        max-height: 6rem;
+        min-width: 6rem;
+        max-width: 6rem;
+        padding: .6rem .8rem;
+        border-radius: .6rem;
+        border: 1px solid #eee;
+    }
+
+    .noColor {
+        background: #eee;
+    }
+
+    .calTop {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        margin-top: 30px;
+    }
+
+    .btn {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #000;
+        border-width: 3px 3px 0 0;
+        cursor: pointer;
+    }
+
+    .prevDay {
+        transform: rotate(-135deg);
+    }
+
+    .nextDay {
+        transform: rotate(45deg);
+    }
+    .mytext{
+        /* margin-left: 43%; */
+        transform: translateY(150px);
+        font-size: xx-large;
+    }
+  
+
+</style>
+<body>
+    <div id="headerwrap">
+        <div id="header">
+            <a href="/main.html"><img src="../logo/logo.png" height="70px"></a>
+            <div id="nav">
+                <div class="dropdown">
+                    <button class="ddBtn">꿀단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/ten.html">10대 꿀단지</a>
+                        <a href="../html/twenty.html">20대 꿀단지</a>
+                        <a href="../html/thirty.html">30대 꿀단지</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">게임단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/game.html">꿀벌게임</a>
+                        <a href="../html/roulette.html">룰렛게임</a>
+                        <a href="#">(준비중)</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">알림단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/calendar.html">정보 캘린더</a>
+                        <a href="../html/event.html">행사 안내</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">문의하기</button>
+                    <div class="dropdown-content">
+                        <a href="../html/qna.html">자주하는 질문</a>
+                    </div>
+                </div>
+            </div>
+                <div class="userIcon">
+                    <img src="../icon/main_menu.png">
+                    <ul class="dropdown-content">
+                        <a href="../loghtml/log.html">로그인</a>
+                        <a href="../loghtml/membership.html">회원가입</a>
+                        <a href="../loghtml/myPage.html">마이페이지</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div class='rap'>
+        <div class="selectByUser">
+            <p class="mytext">내 정보 담기</p>
+            <ul id="selectList"></ul>
+            <button class="w-btn w-btn-yellow" type="button">
+                저장하기
+            </button>
+        </div>
+
+        <div id="캘린더">
+            <div class="calTop">
+                <div class="btn prevDay"></div>
+                <h2 class='dateTitle'></h2>
+                <div class="btn nextDay"></div>
+            </div>
+
+            <div class="grid dateHead">
+                <div>일</div>
+                <div>월</div>
+                <div>화</div>
+                <div>수</div>
+                <div>목</div>
+                <div>금</div>
+                <div>토</div>
+            </div>
+            <div id="date_grid" class="grid dateBoard"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let date_value = []
+    const eventData = [
+        { "date": 1, "content": "" },
+        { "date": 2, "content": "" },
+        { "date": 3, "content": "" },
+        { "date": 4, "content": "" },
+        { "date": 5, "content": "LH 행복주택 접수(~7/20)" },
+        { "date": 6, "content": "" },
+        { "date": 7, "content": "" },
+        { "date": 8, "content": "" },
+        { "date": 9, "content": "" },
+        { "date": 10, "content": "" },
+        { "date": 11, "content": "삼성아카데미 (~7/29)" },
+        { "date": 12, "content": "" },
+        { "date": 13, "content": "" },
+        { "date": 14, "content": "" },
+        { "date": 15, "content": "훈련수당 신청일" },
+        { "date": 16, "content": "" },
+        { "date": 17, "content": "" },
+        { "date": 18, "content": "" },
+        { "date": 19, "content": "" },
+        { "date": 20, "content": "" },
+        { "date": 21, "content": "청년교통마일리지신청" },
+        { "date": 22, "content": "" },
+        { "date": 23, "content": "" },
+        { "date": 24, "content": "" },
+        { "date": 25, "content": "미취업취업장려금신청" },
+        { "date": 26, "content": "" },
+        { "date": 27, "content": "" },
+        { "date": 28, "content": "올리브영빅세일" },
+        { "date": 29, "content": "" },
+        { "date": 30, "content": "" },
+        { "date": 31, "content": "" },
+    ]
+
+    // Date 포맷 
+    const dateFormat = (date) => {
+        return date.toLocaleDateString().replace(/\./g, "").split(" ");
+    }
+    // 달력 생성
+    const makeCalendar = (date) => {
+
+        // 현재의 년도와 월 받아오기
+        const [nowYear, nowMonth] = dateFormat(date);
+
+        // 지난달의 마지막 요일
+        const prevDay = new Date(nowYear, nowMonth - 1, 1).getDay();
+
+        // 현재 월의 마지막 날 구하기
+        const lastDay = dateFormat(new Date(nowYear, nowMonth, 0)).pop() * 1;
+
+        let htmlDummy = '';
+
+        // 전달 날짜 표시하기
+        for (let i = 0; i < prevDay; i++) {
+            htmlDummy += `<div class="noColor"></div>`;
+        }
+
+        // 현재 날짜 표시하기
+        for (let i = 1; i <= lastDay; i++) {
+            htmlDummy += `<div id="date_${i}">${i}</div>`;
+        }
+
+        // 지금까지 추가한 날짜 박스
+        const maxDay = prevDay + lastDay;
+
+        // 마지막날이 들어있는 열에 남은 박스 채우기
+        const nextDay = (Math.ceil(maxDay / 7) * 7) - maxDay;
+
+        // 다음달 날짜
+        for (let i = 0; i < nextDay; i++) {
+            htmlDummy += `<div class="noColor"></div>`;
+        }
+        document.querySelector(`.dateBoard`).innerHTML = htmlDummy;
+        document.querySelector(`.dateTitle`).innerText = `${nowYear}년 ${nowMonth}월`;
+    }
+
+    const date = new Date();
+
+    // Date 객체를 보내서 달력 생성
+    makeCalendar(date);
+    date.setMonth(date.getMonth() - 1);
+
+    // 이전달 이동
+    document.querySelector(`.prevDay`).onclick = () => {
+        makeCalendar(new Date(date.setMonth(date.getMonth() - 1)));
+    }
+
+    // 다음달 이동
+    document.querySelector(`.nextDay`).onclick = () => {
+        makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
+    }
+
+    //일정 이름 누르면 위에 있는 리스트에 들어가도록
+    const events = []
+    for (let idx = 1; idx < 36; idx++) {
+        const date = document.querySelector(`#date_${idx}`)
+        const new_div = document.createElement("div")
+        new_div.style.backgroundColor = "transparent"
+        new_div.style.fontWeight = "500"
+        new_div.style.fontSize = "1.2em"
+        new_div.style.border = "none"
+
+    //일정을 눌렀을때 
+        new_div.onclick = () => {
+            let user = document.querySelector('#selectList')
+            // 중복으로 담겼을 떄 제거
+            if(date_value.includes(new_div.innerHTML)){
+                selectList.removeChild(selectList.querySelectorAll("div")[date_value.indexOf(new_div.innerHTML)])
+                date_value.splice(date_value.indexOf(new_div.innerHTML),1)
+                return;
+            }
+            let text_div = document.createElement('div')
+            text_div.innerHTML += new_div.innerHTML
+            date_value.push(text_div.innerHTML)
+            selectList.appendChild(text_div)
+        }
+        if (date) date.appendChild(new_div)
+
+        events.push({
+            date: `${idx}`,
+            content: "",   
+            element: new_div
+        })
+
+    }
+
+    eventData.forEach((dateObj, idx) => {
+        events[idx].content = dateObj.content
+        events[idx].element.innerHTML = dateObj.content
+    })
+
+</script>
+
+</html>

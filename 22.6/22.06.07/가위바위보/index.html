@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .content {
+        display: none;
+      }
+      .boom{
+        display: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <!-- 알트 + 쉬프트 방향키 아래는 한줄 복사 -->
+      <!-- 컨트롤 + 알트 방향키 아래 밑에 커서 확장  -->
+      <button class="scissors">가위</button>
+      <button class="rock">바위</button>
+      <button class="paper">보</button>
+    </div>
+    <div class="boom"><button>다시하기</button></div>
+    <button id="startBtn">시작</button>
+  </body>
+  <script>
+    let Round= 1;
+    let USER_MONEY = 10000;
+    let COM_MONEY = 10000;
+    const resultType = ["가위", "바위", "보"];
+
+    startBtn.onclick = function () {
+      startBtn.style.display = "none";
+      document.querySelector(".content").style.display = "block";
+    };
+
+    let playerBtns = document.querySelectorAll(".content button");
+    for (let i = 0; i < playerBtns.length; i++) {
+      playerBtns[i].onclick = function () {
+        // 0 1 2
+        GameResult(i);
+        if (Round >= 9){
+          alert('게임종료')
+          document.querySelector(".boom").style.display = "block";
+          document.querySelector(".content").style.display = "none";
+          return;
+        }
+        else if(USER_MONEY <= 0){
+          alert("당신은"+USER_MONEY+"원으로 패배하셨습니다.");
+          document.querySelector(".boom").style.display = "block";
+          document.querySelector(".content").style.display = "none";
+          return;
+        }
+        else if (COM_MONEY <= 0){
+          alert("컴퓨터가"+COM_MONEY+"원으로 당신이 승리하셨습니다.");
+          document.querySelector(".boom").style.display = "block";
+          document.querySelector(".content").style.display = "none";
+          return;
+        } 
+        Round++
+      };
+    }
+    function comResult() {
+      return Math.floor(Math.random() * 3);
+    }
+
+    function GameResult(playerResult) {
+      if (Round >= 9){
+        return alert('게임종료');
+        }
+      
+      let money = Number(prompt("배팅가격을 입력해주세요"))
+      if(USER_MONEY<money){
+        alert("배팅금액이 당신의 돈을 초과했습니다. 다시 입력하세요.");
+        GameResult(playerResult);
+        return;
+      }
+      else if(COM_MONEY<money){
+          alert("배팅금액이 컴퓨터의 돈을 초과했습니다. 다시 입력하세요.");
+          GameResult(playerResult);
+          return;
+      }
+      else if(!(Number(money))){
+          alert("잘못입력하셨습니다.")
+          GameResult(playerResult);
+          return;
+      }
+      console.log(Round + "라운드")
+      let _comResult = comResult();
+      switch (playerResult) {
+        case _comResult:
+          console.log("플레이어 : " + resultType[playerResult]);
+          console.log("컴퓨터 : " + resultType[_comResult]);
+          bet(money);
+          break;
+        default:
+          if (playerResult === 0 && _comResult === 2) {
+            console.log("플레이어 : " + resultType[playerResult]);
+            console.log("컴퓨터 : " + resultType[_comResult]);
+            win(money);
+            return ;
+            
+          } else if (playerResult === 1 && _comResult === 0) {
+            console.log("플레이어 : " + resultType[playerResult]);
+            console.log("컴퓨터 : " + resultType[_comResult]);
+            win(money);
+            return ;
+          } else if (playerResult === 2 && _comResult === 1) {
+            console.log("플레이어 : " + resultType[playerResult]);
+            console.log("컴퓨터 : " + resultType[_comResult]);
+            win(money);
+            return ;
+          } else {
+            console.log("플레이어 : " + resultType[playerResult]);
+            console.log("컴퓨터 : " + resultType[_comResult]);
+            lose(money);
+            return ;
+          }
+      }
+
+    }
+    function win(c){
+        USER_MONEY= plus(USER_MONEY,(c * 2));
+        COM_MONEY= minus(COM_MONEY,(c * 2));
+        console.log("너가 이겼다")
+        console.log("당신의 돈 :",USER_MONEY+"원")
+        console.log("컴퓨터의 돈 :",COM_MONEY+"원")
+    }
+    function lose(d){
+        USER_MONEY=minus(USER_MONEY,(d * 2));
+        COM_MONEY=plus(COM_MONEY,(d * 2));
+        console.log("너가 졌다")
+        console.log("당신의 돈 :",USER_MONEY+"원")
+        console.log("컴퓨터의 돈 :",COM_MONEY+"원")
+    }
+    function bet(e){
+    console.log("무승부")
+    console.log("당신의 돈 :",USER_MONEY+"원")
+    console.log("컴퓨터의 돈 :",COM_MONEY+"원")
+    }   
+    function minus(a,b){
+    return a-b;
+    }
+    function plus(a,b){
+        return a+b;
+    }
+  </script>
+</html>

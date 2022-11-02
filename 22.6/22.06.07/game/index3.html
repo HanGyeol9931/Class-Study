@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .content{
+        height: 100vh;
+    }
+    .box{
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+    }
+    .con{
+        position: absolute;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: black;
+        transition: 1s;
+    }
+    .active{
+        left: 0;
+        opacity: 1;
+    }
+    .test{
+        width: 200px;
+        height: 200px;
+        background-color: black;
+    }
+</style>
+<body>
+    <div class="content"></div>
+    <div class="box">
+        <div class="con"></div>
+    </div>
+    <div class="box">
+        <div class="con"></div>
+    </div>
+    <div class="box">
+        <div class="con"></div>
+    </div>
+    <div class="box">
+        <div class="con"></div>
+    </div>
+</body>
+<!-- <script>
+    let cons = document.querySelectorAll('.box .con');
+    console.log(cons[0].getBoundingClientRect().top)
+    console.log(cons[1].getBoundingClientRect().top)
+    console.log(cons[2].getBoundingClientRect().top)
+    console.log(cons[3].getBoundingClientRect().top)
+    window.onscroll = function(){
+        //window.scrollY 윈도우 스크롤 Y꼭대기값
+        console.log(window.scrollY)
+        //getBoundingClientRect 사각면의 가져오는 녀석
+        let scroll = window.screenY + window.innerHeight;
+        for (let i = 0; i < cons.length; i++) {
+            if(scroll > cons[i].getBoundingClientRect().top){
+                //con[i].className.contains('active') 클래스가 있는지 확인
+                //classList.contains('클래스의 이름 여기')
+                if(!cons[i].classList.contains('active'))
+                cons[i].className += " active"
+            }
+            else{
+                //active 클라스 삭제
+                cons[i].classList.remove('active')
+            }
+        }
+    }
+</script> -->
+<script src="index.js"></script>
+</html>

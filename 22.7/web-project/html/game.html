@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꿀벌게임</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/gameHeader.css"/>
+    <link rel="stylesheet" href="../css/footer.css"/>
+    <style>
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        canvas {
+            position: relative;
+            height: 500px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div id="headerwrap">
+        <div id="header">
+            <a href="/main.html"><img src="../logo/logo.png" height="70px"></a>
+            <div id="nav">
+                <div class="dropdown">
+                    <button class="ddBtn">꿀단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/ten.html">10대 꿀단지</a>
+                        <a href="../html/twenty.html">20대 꿀단지</a>
+                        <a href="../html/thirty.html">30대 꿀단지</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">게임단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/game.html">꿀벌게임</a>
+                        <a href="../html/roulette.html">룰렛게임</a>
+                        <a href="#">(준비중)</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">알림단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/calendar.html">정보 캘린더</a>
+                        <a href="../html/event.html">행사 안내</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">문의하기</button>
+                    <div class="dropdown-content">
+                        <a href="../html/qna.html">자주하는 질문</a>
+                    </div>
+                </div>
+            </div>
+            <div class="userIcon">
+                <img src="../icon/main_menu.png">
+                <ul class="dropdown-content">
+                    <a href="../loghtml/log.html">로그인</a>
+                    <a href="../loghtml/membership.html">회원가입</a>
+                    <a href="../loghtml/myPage.html">마이페이지</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--main-->
+    <canvas id="canvas">
+    </canvas>
+    <!--footer-->
+    <div id="footerwrap">
+        <div id="footer">
+            <div class="footer_col">
+                <ul class="col_content">
+                    <li>Creators</li>
+                    <li><a href="#">크리에이터</a></li>
+                    <li><a href="#">스몰비즈니스</a></li>
+                </ul>
+                <ul class="col_content">
+                    <li>Partners</li>
+                    <li><a href="#">비즈니스 광고</a></li>
+                    <li><a href="#">스토어 개설</a></li>
+                    <li><a href="#">지역업체 등록</a></li>
+                </ul>
+                <ul class="col_content">
+                    <li>Developers</li>
+                    <li><a href="#">꿀단지 개발자센터</a></li>
+                    <li><a href="#">오픈API</a></li>
+                    <li><a href="#">오픈소스</a></li>
+                    <li><a href="#">꿀단지 D2</a></li>
+                    <li><a href="#">꿀단지 D2SF</a></li>
+                    <li><a href="#">꿀단지 랩스</a></li>
+                </ul>
+            </div>
+            <div class="footer_row">
+                <ul class="row_icon">
+                    <li><a href="#"><img src="../icon/sns_fb.png"></a></li>
+                    <li><a href="#"><img src="../icon/sns_insta.png"></a></li>
+                    <li><a href="#"><img src="../icon/sns_yt.png"></a></li>
+                    <li><a href="#"><img src="../icon/sns_twt.png"></a></li>
+                </ul>
+                <ul class="row_content">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인재채용</a></li>
+                    <li><a href="#">제휴제안</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">청소년보호정책</a></li>
+                    <li><a href="#">꿀단지 정책</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; 꿀단지 Corp.</p>
+
+        </div>
+    </div>
+</body>
+<!-- 게임js -->
+<script src="../js/game.js"></script>
+</html>
+

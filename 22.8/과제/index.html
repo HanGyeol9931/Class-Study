@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #main{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid;
+            padding: 100px;
+        }
+        #nav{
+            position: absolute;
+            width: 100%;
+            display: none;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            border-bottom:1px solid ;
+        }
+        .navSub{
+            display: flex;
+            width: 500px;
+            justify-content: space-around;
+        }
+        #popup{
+            top: 60px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            border-bottom:1px solid ;
+            transition: 3s;
+        }
+        .popup{
+            margin-right: 20px;
+            
+        }
+        .trnasform{
+            transform: translateY(-70px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div id="navName">로그인창</div>
+        <div class="navSub">
+            <div>나</div>
+            <div>는</div>
+            <div>네</div>
+            <div>브</div>
+            <div>바</div>
+        </div>
+    </div>
+    <div id="popup">
+        <div class="popup">나는 광고</div>
+        <button id="popupDelete">하루 동안 안보기</button>
+        <button id="popupDelete2">닫기</button>
+
+    </div>
+    
+    <div id="main">
+        <label for="" id="">이름</label>
+        <input type="text" id="user">
+        <label for="" id="">비밀번호</label>
+        <input type="text" id="pw">
+        <button id="login">로그인</button>
+    </div>
+</body>
+<script>
+    let creatCookie = function(name, value,time){
+        let date = new Date();
+        date.setTime(date.getTime()+ time * 24 * 60 * 60 * 1000)
+        document.cookie =
+        name + '=' + value + ";expires" + date.toUTCString() + ";path=/";
+    };
+    let getCookie = function(name){
+        let value = document.cookie.match("(^|;)?" + name + "=([^;]*)(;|$)");
+        return value ? value[2] : null;
+        // 주석
+    }
+    let isActiveCookie = (key)=>{
+        return getCookie(key) != null ? true : false;
+    };
+    if(isActiveCookie("cocoa") == false){
+        popup.style.display = "flex";
+    }
+     login.onclick = ()=>{
+        sessionStorage.setItem("userData",user.value);
+        navName.innerHTML = sessionStorage.getItem("userData")+"님 환영합니다"
+        nav.style.display = "flex"
+        main.style.display = "none"
+        popup.style.display = "none";
+    }
+    popupDelete.onclick = ()=>{
+        creatCookie( "cocoa", "done" , 1 );     // 저장될 쿠키명 , 쿠키 value값 , 기간( ex. 1은 하루, 7은 일주일)
+        popup.style.display = "none";
+
+    }
+    popupDelete2.onclick = ()=>{
+        popup.classList.add("trnasform") 
+      }  // 팝업창 아이디
+    
+</script>
+</html>

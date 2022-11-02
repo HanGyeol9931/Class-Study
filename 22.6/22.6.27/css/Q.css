@@ -1,0 +1,13 @@
+.box{
+
+    margin-top: 20px;
+
+}
+.box_title{
+    margin-left: 17px;
+    padding-bottom: 17px;
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    font-weight: 600;
+    /* border-bottom: 2px solid black; */
+}

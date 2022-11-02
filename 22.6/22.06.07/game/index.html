@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button class="scissor">가위</button>
+        <button class="rock">바위</button>
+        <button class="paper">보</button>
+    </div>
+    <button id="startBtn">시작</button>
+</body>
+<script>
+    const resultType = ['가위','바위','보'];
+    startBtn.onclick = function(){
+        startBtn.style.display = "none";
+        document.querySelector('.content').style.display = "block";
+    };
+    let playerBtns = document.querySelectorAll('.content button');
+    for(let i= 0;i < playerBtns.length; i++){
+        playerBtns[i].onclick = function() {
+         console.log(GameResult(i))
+        };
+    }
+    function comResult(){
+        return Math.floor(Math.random() * 3)
+    }
+
+    function GameResult(playerResult){
+        return playerResult === comResult() ? '무승부' 
+        : playerResult <comResult() 
+        ? "승리"
+        : "패배"
+    }
+    
+
+</script>
+</html>

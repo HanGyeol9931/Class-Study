@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" type="text/css" href="/css/membership_1.css">
+</head>
+<body>
+    
+    <div class="register">
+        <h3>회원가입</h3>
+        <form name="join_form" action="join_ok.php" method="post">
+            <div class="flex">
+                <ul class="container">
+                    <li class="item center">
+                        이름
+                    </li>
+                    <li class="item">
+                        <input type="text" name="uname" id="uname" autofocus >
+                    </li>
+                    <li class="item">
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        아이디
+                    </li>
+                    <li class="item">
+                        <input type="text" name="udi" id="uid" placeholder="이메일형식 아이디를 입력하세요." >
+                    </li>
+                    <li class="item">
+                        <button class="idcheck" onclick="id_check();">중복확인</button>
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        비밀번호
+                    </li>
+                    <li class="item">
+                        <input type="password" name="pwd" id="pwd" placeholder="영문자+숫자+특수문자 조합 입력하세요." >
+                    </li>
+                    <li class="item">
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        비밀번호 확인
+                    </li>
+                    <li class="item">
+                        <input type="password" name="repwd" id="repwd" placeholder="비밀번호를 입력하세요." >
+                    </li>
+                    <li class="item">
+                        
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        생년월일
+                    </li>
+                    <li class="item">
+                        <input type="date" >
+                    </li>
+                    <li class="item">
+                        
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        성별
+                    </li>
+                    <li class="item">
+                        <select name="gender" id="">
+                            <option value="선택" selected>선택</option>
+                            <option value="남성">남성</option>
+                            <option value="여성">여성</option>
+                        </select>
+                    </li>
+                    <li class="item">
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        전화번호
+                    </li>
+                    <li class="item">
+                        <input type="tel" name="mobile" id="mobile" placeholder="휴대전화번호(-)빼고 입력" required>
+                    </li>
+                    <li class="item">        
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        이메일
+                    </li>
+                    <li class="item">
+                        <input type="text" name="email_id" id="email_id" required>
+                    </li>
+                    <li class="item">                     
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        주소
+                    </li>
+                    <li class="item">
+                        <input type="text" name="postal_code" id="postal_code" required>
+                    </li>
+                    <li class="item">                     
+                    </li>
+                </ul>
+
+                <ul class="container">
+                    <li class="item center">
+                        상세주소
+                    </li>
+                    <li class="item">
+                        <input type="text" name="addr2" id="addr2" required>
+                    </li>
+                    <li class="item">                     
+                    </li>
+                </ul>
+
+                <div class="join_btn">
+                <ul class="container">
+                    <li class="item center">
+                    </li>
+                    <li class="item">
+                        <button class="submit" onclick="joinform_check();">가입하기</button>
+                    </li>
+                    <li class="item">
+                    </li>
+                </ul>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</body>
+ <script src="../js/membership_1.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

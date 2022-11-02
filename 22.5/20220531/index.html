@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //(ex) [1,2,3,4,5] = 9 return 하는 인덱스는 3,4
+        //배열 arr가 있고 어떤수 weght가 주었졌을때 합쳐서 weght가 되는 배열내
+        //두개의 인덱스를 반환하라 만약 합쳐서 weight가 되는 항목 두개가 존재하지 않는 경우
+        //-1 return
+
+        // function findSum(arr,weight){
+        //     //2중 포문을 돌면서 다음인덱스와 비교
+        //     for(let i = 0; i< arr.length;i++){
+        //         for(let k = i+1; k < arr.length; k++){
+        //             if(arr[i] + arr[k] == weight){
+        //                 //만약 배열안에 들어 잇는 두개의 값이 weight 와 같다면
+        //                 return[i,k];// 해당 인덱스 리턴
+        //             }
+        //         }
+        //     }
+        //     return -1;
+        // }
+        // const arr = [1,2,3,4,5]
+        // const test = findSum(arr,3)
+        // console.log(test)
+
+        // function Maxrix(row,col){
+        //     let jaggedArr = new Array(row)
+        //     for(let i  = 0;i<col;i++){
+        //         jaggedArr[i] = new Array(row)
+        //     }
+        //     return jaggedArr;
+        // }
+        // console.log(Maxrix(2,1)) 
+            
+            let a = [[1,2,3],[4,5,6],[7,8,9]];
+            console.log(a[1,1])
+
+        /* 
+        input
+        [1,0,1],
+        [0,0,1],
+        [1,1,1],
+
+        output
+        [1,1,1],
+        [0,0,1],
+        [1,0,1],
+
+        //행렬을 왼쪽으로 90도 회전 (반시계)
+        1. 행렬의 세번째 열이 회전된 행렬의 첫번째 행이 된다.
+        2. 행렬의 두번째 열이 회전된 형렬의 두번째 행이 된다.
+        3. 행렬의 첫번째 열이 회전된 형렬의 세번째 행이 된다.
+
+        
+
+        버블 정렬
+        가장간단하지만 전체 배열을 순회하면서 이전항목이 다음 항목보다 큰 경우 두 항목 교환
+        모든 가능한 짝을 비교하기 떄문이다.
+
+        6 1 2 3 4 5
+        1 6 2 3 4 5
+        1 2 6 3 4 5
+        1 2 3 6 4 5
+        1 2 3 4 6 5
+        1 2 3 4 5 6
+
+        
+
+        
+        */
+       function radom(n){
+           let arr = new Array();
+           let num;
+           let temp
+
+           for (let i=0;i <= n; i++){
+               arr.push(i)
+           }
+           for(let i=0;i<arr.length;i++){
+               num= Math.floor(Math.random() * n);
+               temp = arr[i];
+               arr
+           }
+       }
+       function bubbleSort(array){
+           const arrlen = array.lenght;
+           for(let i=0;i < arrlen; i++){
+               for(let k=0;k<arrlen -1 -i;k++){
+                   if(array[k]>array[k+1]){
+                       let temp = array [k];
+                       array [k] = array [k+1];
+                       array [k+1] = temp;
+                   }
+               }
+           }
+           return array;
+       }
+       let bubbleSorting = radom(10)
+       console.log("버블 정렬전 : ", bubbleSorting)
+       console.log("버블 정렬후 : ", bubbleSort(bubbleSorting))
+    </script>
+</body>
+</html>
+
+

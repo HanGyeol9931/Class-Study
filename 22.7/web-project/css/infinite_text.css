@@ -1,0 +1,12 @@
+@keyframes marquee {
+    from { transform: translateZ(0) }
+    to { transform: translate3d(-100%,0,0) }
+  }
+.marquee_box { 
+    /* will-change: transform;  */
+    animation: marquee 5s linear infinite; 
+}
+.marquee_wrap { 
+    display: flex; 
+    height: 130px;
+}

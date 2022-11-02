@@ -1,0 +1,62 @@
+html{
+    height: 100%;
+}
+body{
+    margin: 5px;
+    background-color: white;
+}
+img{
+   width: 50px;
+   height: 50px;
+   /* display: flex; */
+}
+.do{
+    width: 50px;
+   height: 50px;
+}
+.don{
+    width: 50px;
+   height: 50px;
+}
+.ko{
+    width: 50px;
+   height: 50px;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 12px;
+}
+span{
+    text-align: center;
+    width: 76px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    
+}
+span:hover{
+    background-color: #e8f0fe;
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    width: 76px;
+    height: 76px;
+    
+}
+a div{
+    position: relative;
+
+    color: #70757a;
+}
+.coco{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}

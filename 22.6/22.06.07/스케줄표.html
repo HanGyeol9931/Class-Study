@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+s
+<body>
+    <input id="_input" type="date">
+    <input id="_input1"type="time">
+    <input id="_input2"type="text">
+    <button id="createBtn">제출</button>
+    <div id ="container"></div>
+</body>
+<script>
+    let num = 0
+    createBtn.onclick =function(){
+        num++
+        let al = document.createElement('span');
+        al.innerHTML = num
+        let text = al.innerHTML+"   :  "+ _input.value +"|"+ _input1.value+" |"+ _input2.value ;
+        let el = document.createElement('div');
+        el.innerHTML = text;
+        el.className += "test"
+
+        let removeBtn = document.createElement('button');
+        removeBtn.innerHTML = "삭제"
+
+        removeBtn.onclick = function () {
+          container.removeChild(el);
+          container.removeChild(removeBtn);
+        let a = document.querySelectorAll(".test");
+        for(let i =1;i<=a.length; i++){
+            let _text = a[i -1].innerHTML;
+            _text = _text.substring(_text.indexOf(':'),_text.length);
+            a[i - 1].innerHTML =  i + " " + _text;
+        }
+      };
+      container.appendChild(el);
+      container.appendChild(removeBtn);
+    }
+</script>
+</html>

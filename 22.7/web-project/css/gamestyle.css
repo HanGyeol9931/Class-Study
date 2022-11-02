@@ -1,0 +1,34 @@
+    
+    /* 아이디패스워드 찾는 영역 */
+    #idpw{
+        width: 100%;
+        height: 600px;
+        display: flex;
+        padding: auto;
+        align-items: center;
+    }
+
+    #id{
+        width: 50%;
+        height: 600px;
+        border-right:1px solid #ffbb2e;
+    }
+
+    #pw{
+        width: 50%;
+        height: 600px;       
+    }
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  ul,
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }       

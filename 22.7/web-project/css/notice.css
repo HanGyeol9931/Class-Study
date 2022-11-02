@@ -1,0 +1,93 @@
+.notice-title {
+    height: 150px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    margin: 30px 0;
+  }
+  
+  .notice-title .txtAni {
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    animation: bounce .3s ease infinite alternate;
+    font-size: 80px;
+    color: #ffbb2e;
+    text-shadow: 0 1px 0 #CCC,
+                 0 2px 0 #CCC,
+                 0 3px 0 #CCC,
+                 0 4px 0 #CCC,
+                 0 5px 0 #CCC,
+                 0 6px 0 transparent,
+                 0 7px 0 transparent,
+                 0 8px 0 transparent,
+                 0 9px 0 transparent,
+                 0 10px 10px rgba(0, 0, 0, .3);
+  }
+  
+  .notice-title .txtAni:nth-child(2) { animation-delay: .1s; }
+  .notice-title .txtAni:nth-child(3) { animation-delay: .2s; }
+  .notice-title .txtAni:nth-child(4) { animation-delay: .3s; }
+  .notice-title .txtAni:nth-child(5) { animation-delay: .4s; }
+  .notice-title .txtAni:nth-child(6) { animation-delay: .5s; }
+  .notice-title .txtAni:nth-child(7) { animation-delay: .6s; }
+  .notice-title .txtAni:nth-child(8) { animation-delay: .7s; }
+  .notice-title .txtAni:nth-child(9) { animation-delay: .8s; }
+  .notice-title .txtAni:nth-child(10) { animation-delay: .9s; }
+  .notice-title .txtAni:nth-child(11) { animation-delay: .10s; }
+  .notice-title .txtAni:nth-child(12) { animation-delay: .11s; }
+  .notice-title .txtAni:nth-child(12) { animation-delay: .12s; }
+  
+  @keyframes bounce {
+    100% {
+      top: -20px;
+      text-shadow: 0 1px 0 #dddddd,
+                   0 2px 0 #dddddd,
+                   0 3px 0 #dddddd,
+                   0 4px 0 #dddddd,
+                   0 5px 0 #dddddd,
+                   0 6px 0 #dddddd,
+                   0 7px 0 #dddddd,
+                   0 8px 0 #dddddd,
+                   0 9px 0 #dddddd,
+                   0 50px 25px rgba(0, 0, 0, .1);
+    }
+  }
+
+.notice-wrap{
+    
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+div h2{
+    font-size: 24px;
+    width: 470px;
+    margin: 50px 0 50px 40px;
+}
+
+.notice-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #ffbb2e;
+    text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    height: 150px;
+    margin: 50px 0 0 0;
+}
+.cocoa{
+    width: 400px;
+    height: 95px;
+    padding: 30px;
+}
+.cocoa:hover{
+    border: 1px solid rgba(255, 187, 46, 0.8);
+    /* background-color: rgba(255, 187, 46, 0.8); */
+    /* transition: 0.5s; */
+}
+.text123{
+    font-size: 20px;
+    height: 60px;
+}

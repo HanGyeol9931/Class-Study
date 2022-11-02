@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 리셋 css -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <!-- 종찬꺼 css -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/video.css" />
+    <!-- 헤더css -->
+    <link rel="stylesheet" href="css/header.css" />
+    <!--사이드 팝업 메뉴 css-->
+    <link rel="stylesheet" href="css/slide_menu.css" />
+    <!-- 푸터 -->   
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- introduce.css -->
+    <link rel="stylesheet" href="css/scroll_photo.css" />
+    <!--기부하기-->
+    <link rel="stylesheet" href="css/donate.css">
+    <!-- 공지사항 css -->
+    <link rel="stylesheet" href="css/notice.css" />
+    <!-- 글자무빙css -->
+    <link rel="stylesheet" href="css/infinite_text.css" />
+    <link rel="icon" href="/icon/favicon.ico">
+    <title>꿀단지</title>
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="headerwrap">
+        <div id="header">
+            <a href="main.html"><img src="./logo/logo.png" height="70px"></a>
+            <div id="nav">
+                <div class="dropdown">
+                    <button class="ddBtn">꿀단지</button>
+                    <div class="dropdown-content">
+                        <a href="./html/ten.html">10대 꿀단지</a>
+                        <a href="./html/twenty.html">20대 꿀단지</a>
+                        <a href="./html/thirty.html">30대 꿀단지</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">게임단지</button>
+                    <div class="dropdown-content">
+                        <a href="./html/game.html">꿀벌게임</a>
+                        <a href="./html/roulette.html">룰렛게임</a>
+                        <a href="#" onclick="alert(`준비 중입니다`)">(준비중)</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">알림단지</button>
+                    <div class="dropdown-content">
+                        <a href="./html/calendar.html">정보 캘린더</a>
+                        <a href="./html/event.html">행사 안내</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">문의하기</button>
+                    <div class="dropdown-content">
+                        <a href="./html/qna.html">자주하는 질문</a>
+                    </div>
+                </div>
+            </div>
+                <div class="userIcon">
+                    <img src="../icon/main_menu.png">
+                </div>
+                <div class="menuwrap">
+                    <div class="box"></div>
+                    <div class="menuBoxWrap">
+                    <div class="menu_left">
+                        <div class="menu_top">
+                            <div><img src="../logo/logo.png" height="60px"></div>
+                            <div class="forUser">
+                                <span><a href="./loghtml/log.html">로그인</a></span>
+                                <span><a href="./loghtml/membership.html">회원가입</a></span>
+                                <span><a href="./loghtml/myPage.html">마이페이지</a></span>
+                            </div>
+                        </div>
+                        <div class="menu_mid">
+                            <h1>사람들이<br>
+                                꿀을 빨 수 있게 도와주는<br>
+                                우리는 허니비 입니다
+                            </h1>
+                        </div>
+                        <div class="menu_bottom">
+                            <a href="#"><img src="../icon/sns_yt.png" width="50px"></a>
+                            <a href="#"><img src="../icon/sns_fb.png" width="50px"></a>
+                        </div>
+                    </div>
+                    <img class="closeBtn" src="../icon/close.png">
+                    <div class="menu_right">
+                        <div class="menu_list">
+                            <ul>
+                                <a href="#"><li>꿀단지</li></a>
+                                <a href="../html/ten.html"><li>10대 꿀단지</li></a>
+                                <a href="../html/twenty.html"><li>20대 꿀단지</li> </a>
+                                <a href="../html/thirty.html"><li>30대 꿀단지</li></a>
+                            </ul>
+                            <ul>
+                                <a href="#"><li>게임단지</li></a>
+                                <a href="./html/game.html"><li>공룡게임</li></a>
+                                <a href="./html/roulette.html"><li>룰렛게임</li></a>
+                                <a href="#" onclick="alert(`준비 중입니다`)"><li>(준비중)</li></a>
+                            </ul>
+                            <ul>
+                                <a href="#"><li>알림단지</li></a>
+                                <a href="./html/calendar.html"><li>정보 캘린더</li></a>
+                                <a href="./html/event.html"><li>행사 안내</li></a>
+                            </ul>
+                            <ul>
+                                <a href="#"><li>문의하기</li></a>
+                                <a href="./html/qna.html"><li>자주하는 질문</li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+        </div>
+    </div>
+    </div> 
+    <!-- 동영상 -->
+    <div class="videoWrap">
+        <video id="playvideo" autoplay loop muted width="100%">
+            <source src="./img/honeyvideo.mp4" />
+        </video>
+        <div class="textBox">
+            <p class="text1">
+                삶을
+                </br>
+                더 아름답게.
+            </p>
+            </br>
+            <p class="text2">
+                "혼자 두지 않겠습니다"
+                </br>
+                </br>
+                "함께 꿀빨게 하겠습니다!"
+            </p>
+            </br>
+            </br>
+            <a href="#" class="btnMore" onclick="movetomain()">더보기</a>
+        </div>
+    </div>
+    <!-- line -->
+    <div class="marquee_wrap">
+        <div class="marquee_box box1">
+            <span class="marquee_text"><img src="./img/infinite_text.png"></span>
+        </div>
+        <div class="marquee_box box2">
+            <span class="marquee_text"><img src="./img/infinite_text.png"></span>
+        </div>
+        <div class="marquee_box box3">
+            <span class="marquee_text"><img src="./img/infinite_text.png"></span>
+        </div>
+    </div>
+    <!-- introduce -->
+    <div class="abc">
+        <div class="ab">
+            <div class="bbb">
+                <div class="text_style right"><span>우리</span>들의 이야기</div>
+                <div class="text_style left"><span>우리</span>의 삶이</div>
+                <div class="text_style "><span>풍요</span>롭게 <span>성장</span> 할 수 있는</div>
+                <div class="text_style"><span>지식</span>과<span>경험</span>의</div>
+                <div class="text_style"><span>꿀</span>을 만들어갑니다.</div>
+            </div>
+        </div>
+        <div class="ao">
+            <div class="momo"></div>
+            <div class="dodo">
+                <div class="img_size"><img src="./img/1한결.jpeg"></div>
+                <div class="ooo">
+                    <div class="title"><span>한결 </span>| 꿀단지의 대장</div>
+                    <div class="content aoaoao">2개월 차, 꿀단지의 대장 한결입니다.</div>
+                    <div class="title">Contact.</div>
+                    <div class="content">Email. <b>sdgjadfg@gamlil.com</b></div>
+                    <div class="content">Phone. <b>010-0000-0000</b></div>
+                    <div class="content">Blog. <a href="https://fourth-saturn-12d.notion.site/38f029f575d64814ace22b130119320d">https://fourth-saturn-12d.notion.site</a></div>
+                    <div class="content">GitHub. <a href="https://github.com/HanGyeol9931">https://github.com/HanGyeol9931</a></div>
+                </div>
+            </div>
+            <div class="dodo">
+                <div class="img_size">
+                    <img src="./img/2종찬.jpeg">
+                </div>
+                <div class="ooo">
+                    <div class="title"><span>종찬 </span>| 낮밤없이 일하는 개발자</div>
+                    <div class="content aoaoao">2개월 차, 불꽃처럼 타오르는 개발자 종찬입니다.</div>
+                    <div class="title">Contact.</div>
+                    <div class="content">Email. <b>whdcks9920@gamlil.com</b></div>
+                    <div class="content">Phone. <b>010-0000-0000</b></div>
+                    <div class="content">Blog. <a href="https://blog.naver.com/whdcks9920">https://blog.naver.com/whdcks9920</a></div>
+                    <div class="content">GitHub. <a href="#">https://github.com/JongChan-Kim98</a></div>
+                </div>
+            </div>
+            <div class="dodo">
+                <div class="img_size">
+                    <img src="./img/3윤미.webp">
+                </div>
+                <div class="ooo">
+                    <div class="title"><span>윤미 </span>| 꾸준히 성장하는 개발자</div>
+                    <div class="content aoaoao">매일 조금씩 발전해나가는 개발자 손윤미 입니다</div>
+                    <div class="title">Contact.</div>
+                    <div class="content">Email. <b>symym629@gamli.com</b></div>
+                    <div class="content">Phone. <b>010-0000-0000</b></div>
+                    <div class="content">Blog. <a href="https://www.notion.so/6-e7e78771d8d04266b0f6b1f8bd5c47a2">https://www.notion.so/</a></div>
+                    <div class="content">GitHub. <a href="https://github.com/YounmiSon">https://github.com/YounmiSon</a></div>
+                </div>
+            </div>
+            <div class="dodo hoha">
+                <div class="img_size">
+                    <img src="./img/4교수님.png">
+                </div>
+                <div class="ooo">
+                    <div class="title"><span>순현좌 </span>| 개발의 God</div>
+                    <div class="content aoaoao">나에게 오너라. 그 끝은 창대하리다.</div>
+                    <div class="title">Contact.</div>
+                    <div class="content">Email. <b>1,000 후원시 제공</b></div>
+                    <div class="content">Phone. <b>100,000 후원시 제공</b></div>
+                    <div class="content">Blog. <a href="#">1,000,000 후원시 제공</a></div>
+                    <div class="content">GitHub. <a href="#">10,000,000 후원시 제공</a></div>
+                </div>
+            </div>
+            <div class="momo"></div>
+        </div>
+    </div>
+    <!-- 기부하기  -->
+    <div class="donate">
+        <h1>Today</h1>
+        <div class="background ">
+            <div class="bg_month"><span></span></div>
+            <div class="bg_date"><span></span></div>
+        </div>
+            <div class="text_pack">               
+                <p class="dnPromo">
+                    나눔을 통해
+                    <br>
+                    오늘을 특별하고 소중한 날로
+                    <br>
+                    만들어보세요
+                </p>
+                <div class="donated">
+                    <span class="dnNow">기부안내</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 공지사항 -->
+    <h1 class="notice-title" >
+        <span class="txtAni">꿀</span>
+        <span class="txtAni">단</span>
+        <span class="txtAni">지</span>
+        <span class="txtAni">의</span>
+        <span class="txtAni">소</span>
+        <span class="txtAni">식</span>
+        <span class="txtAni">을</span>
+        <span class="txtAni">확</span>
+        <span class="txtAni">인</span>
+        <span class="txtAni">하</span>
+        <span class="txtAni">세</span>
+        <span class="txtAni">요</span>
+      </h1>
+    <div class="notice-wrap">
+        <div class="notice-c">
+            <div>
+                <h2>공지사항</h2>
+            </div>
+            <div class="cocoa">
+                <div class="text123">제 1기 꿀딴지 3관왕</div>
+                <div>공지|해외꿀단지</div>
+            </div>
+            <div class="cocoa">
+                <div class="text123">제 2기 꿀딴지 3관왕</div>
+                <div>공지|해외꿀단지</div>
+            </div>
+            <div class="cocoa">
+                <div class="text123">제 3기 꿀딴지 3관왕</div>
+                <div>공지|해외꿀단지</div>
+            </div>
+        </div>
+        <div class="notice-t">
+            <div>
+                <h2>보도자료</h2>
+            </div>
+            <div class="cocoa">
+                <div class="text123">꿀단지 재단,홈페이지 전면 리뉴얼 오픈</div>
+                <div>2022.06.23</div>
+            </div>
+            <div class="cocoa">
+                <div class="text123">꿀단지 재단,"나만의 책꿈터"지원 사업 실시</div>
+                <div>2022.06.10</div>
+            </div>
+            <div class="cocoa">
+                <div class="text123">꿀단지 재단, 제27기 해외 교환 장학생 모집</div>
+                <div>2022.04.06</div>
+                <!-- ?? -->
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <div id="footerwrap">
+        <div id="footer">
+            <div class="footer_col">
+                <ul class="col_content">
+                    <li>Creators</li>
+                    <li><a href="#">크리에이터</a></li>
+                    <li><a href="#">스몰비즈니스</a></li>
+                </ul>
+                <ul class="col_content">
+                    <li>Partners</li>
+                    <li><a href="#">비즈니스 광고</a></li>
+                    <li><a href="#">스토어 개설</a></li>
+                    <li><a href="#">지역업체 등록</a></li>
+                </ul>
+                <ul class="col_content">
+                    <li>Developers</li>
+                    <li><a href="#">꿀단지 개발자센터</a></li>
+                    <li><a href="#">오픈API</a></li>
+                    <li><a href="#">오픈소스</a></li>
+                    <li><a href="#">꿀단지 D2</a></li>
+                    <li><a href="#">꿀단지 D2SF</a></li>
+                    <li><a href="#">꿀단지 랩스</a></li>
+                </ul>
+            </div>
+            <div class="footer_row">
+                <ul class="row_icon">
+                    <li><a href="#"><img src="./icon/sns_fb.png"></a></li>
+                    <li><a href="#"><img src="./icon/sns_insta.png"></a></li>
+                    <li><a href="#"><img src="./icon/sns_yt.png"></a></li>
+                    <li><a href="#"><img src="./icon/sns_twt.png"></a></li>
+                </ul>
+                <ul class="row_content">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인재채용</a></li>
+                    <li><a href="#">제휴제안</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">청소년보호정책</a></li>
+                    <li><a href="#">꿀단지 정책</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; 꿀단지 Corp.</p>
+
+        </div>
+    </div>
+    <div id="moveTopBtn"><img src="./icon/topbtn.png" width="70px"></div>
+</body>
+<script src="./js/slide_menu.js"></script>
+<script src="./js/scroll.js"></script>
+<script src="./js/nav.js"></script>
+</html>

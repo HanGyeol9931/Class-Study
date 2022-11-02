@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행사안내</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+<style>
+    .cardwrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        width: 1400px;
+        margin: 0 auto;
+    }
+
+    .card_item {
+        cursor: pointer;
+        box-sizing: border-box;
+        width: 380px;
+        height: 500px;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .card_item:hover {
+        animation: zoom 0.2s linear;
+    }
+        
+    @keyframes zoom {
+            0%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(1.1) ;
+            }
+            
+        }
+
+    .card_photo {
+        cursor: pointer;
+        width: 330px;
+        height: 320px;
+        border-radius: 10px;
+    }
+
+
+    .card_title {
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .card_content {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .card_toggle {
+        display: flex;
+        justify-content: right;
+    }
+
+    .card_btn {
+        cursor: pointer;
+        width: 100px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        background-color: #ffbb2e;
+        margin-right: 10px;
+    }
+
+    .btnAni{
+        background-color: #fff;
+        border: 1px solid #ffbb2e;
+    }
+
+    .heart_img {
+        cursor: pointer;
+        border: none;
+        width: 50px;
+        height: 50px;
+        background: url('../icon/heart_off.png') center no-repeat;
+        margin-right: 20px;
+    }
+
+    .on {
+        cursor: pointer;
+        border: none;
+        width: 50px;
+        height: 50px;
+        background: url('../icon/heart_on.png') center no-repeat;
+        animation: pop 0.3s linear;
+    }
+
+    @keyframes pop {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+    }
+  
+</style>
+<body>
+    <div id="headerwrap">
+        <div id="header">
+            <a href="/main.html"><img src="../logo/logo.png" height="70px"></a>
+            <div id="nav">
+                <div class="dropdown">
+                    <button class="ddBtn">꿀단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/ten.html">10대 꿀단지</a>
+                        <a href="../html/twenty.html">20대 꿀단지</a>
+                        <a href="../html/thirty.html">30대 꿀단지</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">게임단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/game.html">꿀벌게임</a>
+                        <a href="../html/roulette.html">룰렛게임</a>
+                        <a href="#">(준비중)</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">알림단지</button>
+                    <div class="dropdown-content">
+                        <a href="../html/calendar.html">정보 캘린더</a>
+                        <a href="../html/event.html">행사 안내</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="ddBtn">문의하기</button>
+                    <div class="dropdown-content">
+                        <a href="../html/qna.html">자주하는 질문</a>
+                    </div>
+                </div>
+            </div>
+                <div class="userIcon">
+                    <img src="../icon/main_menu.png">
+                    <ul class="dropdown-content">
+                        <a href="../loghtml/log.html">로그인</a>
+                        <a href="../loghtml/membership.html">회원가입</a>
+                        <a href="../loghtml/myPage.html">마이페이지</a>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    <div class="cardwrap">
+        <div class="card_item" hidden>
+            <div><img class="card_photo"></div>
+            <div>
+                <h3 class="card_title"></h3>
+                <p class="card_content"></p>
+            </div>
+            <div class="card_toggle">
+                <button href="#" class="card_btn">확인하기</button>
+                <div class="heart_img"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/event.js"></script>
+<script>
+    // 메인 스크롤 이벤트
+    var lastScrollTop = 0;
+
+    document.querySelector("body").onscroll = function(){ 
+        // console.log(document.documentElement.scrollTop)
+    var st = window.pageYOffset || document.documentElement.scrollTop; 
+    if (st > lastScrollTop){
+        // downscroll code
+        headerwrap.classList.add("scroll-up")
+        
+    }
+    else if(window.pageYOffset == 0){
+        headerwrap.style.background="transparent" 
+        
+    } 
+    else {
+        // upscroll code
+        headerwrap.classList.remove("scroll-up")
+        headerwrap.style.background="#fff" 
+        headerwrap.style.borderBottom = "1px solid #ffbb2e"
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+    }
+</script>
+</html>

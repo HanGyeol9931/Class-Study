@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- float 속성을 사용해서 웹의 요소를 왼쪽이나 오른쪽에
+배치하면 그다음에 넣는 다른 요소에도 똑같은 속성이 전달
+따라서 float속성이 더이상 유용하지 않다 라고 알려줄게 필요하다
+clear로 해제
+
+속성
+left : float:left
+right :float:left
+both : 둘다해제
+-->
+    <style>
+        div{
+            padding: 20px;
+            margin: 10px;
+        }
+        #box1{
+            background-color: #ccc;
+            float: left;
+        }
+        #box2{
+            background-color: red;
+            float: left;
+        }
+        #box3{
+            background-color: rebeccapurple;
+        }
+        #box4{
+            background-color: blue;
+            clear: left;
+        }
+    </style>
+<body>
+    <div id="box1">박스1</div>
+    <div id="box2">박스2</div>
+    <div id="box3">박스3</div>
+    <div id="box4">박스4</div>
+</body>
+</html>

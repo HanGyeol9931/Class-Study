@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">쿠키이름</label>
+    <input type="text" id="cookieName">
+    <label for="">쿠키값</label>
+    <input type="text" id="cookieValue">
+    <button id="cookieCreate">생성</button>
+
+    <label for="">쿠키조회</label>
+    <input type="text" id="cookieSelect">
+    <button id="cookieView">조회</button>
+    <input type="text" readonly id="cookie">
+
+    <div id="cookieAllView"></div>
+    <button id="AllViewBtn">쿠키 조회</button>
+
+    <input type="text" id="actvieCookie">
+    <button id="activeBtn">확인</button>
+
+    <input type="text" id="cookieDelete">
+    <button id="DeleteBtn">쿠키 삭제</button>
+</body>
+<script src="./app.js"></script>
+<script>
+    cookieCreate.onclick = function(){
+        // 매개변수 (이름, 값, 유효시간)
+        creatCookie(cookieName.value, cookieValue.value ,1)
+    };
+    // 쿠키 전체 확인
+    cookieView.onclick = ()=>{
+        cookie.value = getCookie(cookieSelect.value)
+    }
+    // 쿠키 값 확인
+    AllViewBtn.onclick = ()=>{
+        cookieAllView.innerHTML = document.cookie; 
+    };
+    // 쿠키 유무 확인
+    activeBtn.onclick  = ()=>{
+        
+        console.log(isActiveCookie(actvieCookie.value))
+    };
+    // 쿠키제거
+    DeleteBtn.onclick = ()=>{
+        isDeleteCookie(cookieDelete.value)
+        console.log(cookieDelete.value , "가 삭제 되었음")
+    }
+
+    // tptjtjdsflfaj;
+</script>
+</html>
