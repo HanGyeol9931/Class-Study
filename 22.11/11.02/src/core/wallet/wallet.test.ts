@@ -69,7 +69,7 @@ const ec = new elliptic.ec("secp256k1")
 describe("지갑 만들기",()=>{
     let privKey : string;
     let pubKey : string;
-    let signature : elliptic.ec.Signature;
+    let signatrue : elliptic.ec.Signature;
     it("개인키 생성",()=>{
         // 256자리의 2진수 랜덤 값을 만들고 toString("hex")를 사용해서
         // 16 진수로 나타 내줌
@@ -88,8 +88,8 @@ describe("지갑 만들기",()=>{
         // 개인키랑 hash 값이 필요해서 SHA256함수 사용
         const keyPair = ec.keyFromPrivate(privKey);
         const hash = SHA256("transaction data").toString();
-        signature = keyPair.sign(hash,"hex");
-        console.log("서명 : ",signature);
+        signatrue = keyPair.sign(hash,"hex");
+        console.log("서명 : ",signatrue);
     })
 
     // 마지막 검증하기
@@ -99,7 +99,7 @@ describe("지갑 만들기",()=>{
     it("검증하기",()=>{
         // 필요한 값 : 서명, 공개키 , hash
         const hash = SHA256("transaction data").toString();
-        const verify = ec.verify(hash,signature,ec.keyFromPublic(pubKey,"hex"));
+        const verify = ec.verify(hash,signatrue,ec.keyFromPublic(pubKey,"hex"));
         console.log(verify);
     })
     // 동일한 내용을 "transaction data"이 값으로 해시값을 만들어서 검증에 사용한것이기때문에

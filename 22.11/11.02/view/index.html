@@ -57,12 +57,13 @@
     }
     const submitHandler = async(e) =>{
         e.preventDefault();
-        const publcKey = publicKey.innerHTML;
-        const account =account.innerHTML;
+        console.log(e.target)
+        const _publicKey = document.querySelector(".publicKey").innerHTML;
+        const _account =document.querySelector(".account").innerHTML;
         const data = {
             sender : {
-                publcKey,
-                account
+                publicKey : _publicKey,
+                account :_account,
             },
             received : e.target.received.value,
             amount : parseInt(e.target.amount.value),
@@ -76,7 +77,7 @@
         privateKey.innerHTML = wallet.privateKey;
         balance.innerHTML = wallet.balance;
     }
-    const getView = async ()=>{
+    const getView = async (account)=>{
         // 계정 정보
         const response = await axios.get(`/wallet/${account}`)
         view(response.data);
@@ -86,13 +87,14 @@
         const response = await axios.post("/walletList",null);
 
         const list = response.data.map((account)=>{
-            return `<li onClick="getView('${account}'">${account}</li>`
-        })
+            return `<li onClick=getView(${account}>${account}</li>`
+        }).join("")
+        
 
         walletList2.innerHTML = list
     }
     walletBtn.addEventListener("click",createWallet);
     walletListBtn.addEventListener("click",getWalletList);
-    transactionForm.addEventListener("click",submitHandler);
+    transactionForm.addEventListener("submit",submitHandler);
 </script>
 </html>
