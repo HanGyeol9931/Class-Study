@@ -31,5 +31,16 @@ export class Transaction implements ITransaction {
         })
         return utxo;
     }
+    // 트랜잭션을 만들어 주는 함수
+    // 트랜잭션 만들때 내 계정과 일치하는 UTXO 필요
+    static createTransaction(receivedTx : any ,myUTXO : UnspntTxOut[]):Transaction{
+        const {sum,txins} =TxIn.createTxIns(receivedTx,myUTXO);
+
+        const txouts : TxOut[] = TxOut.createTxOuts(sum,receivedTx);
+
+        const tx = new Transaction(txins,txouts)
+        return tx;
+
+    }
 }
 

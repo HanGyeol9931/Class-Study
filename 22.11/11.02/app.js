@@ -215,3 +215,63 @@
 // output : [{주소 : 누구, 얻은 코인 : 29}]
 // }
 // UTXO = [{주소 : 누구 ,코인 29 ,참조 트랜잭션 : Tx 0002},{주소 : 누구 ,참조트랜잭션 : Tx0003}]
+
+// 지갑 프로그램에서 사용자 계정 A, B가 있고
+// A가 B한테 10 BTC의 전송을 보내면 지갑서버에서 요청을 받아서 
+// 서명과 트랜잭션 데이터를 만들고 블록체인 서버 쪽에 해당 데이터를 전송
+// 블록체인 서버에서 트랜잭션 객체를 만들어 준다.
+
+// 트랜잭션 객체가 생겼을때 UTXO 배열 안에서 unspentTxOut 객체를 제거하고 트랜잭션을 통해
+// 새로 생긴 unspentTxOut 객체들을 UTXO에 추가 시켜주는 작업
+// UTXO 내용을 업데이트 해준다.
+
+// 트랜잭션 풀 이라는 공안을 만들고 트랜잭션 객체가 생성되었을때 만들어진 트랜잭션을
+// 트랜잭션 풀에 담아준다. 그리고 블록체인 네트워크 상에 연결된 노드들은 트랜잭션 풀의 내용을
+// 공유한다. 블록 마이닝 할때 트랜잭션 풀 안에 있는 트랜잭션 객체를 사용해 새로 생성되는 블록의
+// data 속성 값으로 넣어준다.
+// 그래서 필요한게 블록이 마이닝 될때 트랜잭션 풀을 업데이트 해주는 부분이 필요
+
+// 노드들이 트랜잭션 풀의 내용을 공유한느 부분은 트랜잭션 객체가 생겼을때 트랜잭션 객체를
+// 보드캐스트 하는 방식 
+
+// 윈도우에 geth를 설치해서 쓰면 더 쉬운데 맥 사용자들이 있어서 
+// 예전엔 윈도우를  Linux 쓰려면 가상머신을 설치해서 사용해야됐는데
+
+// 컴퓨터나 메모리나 CPU 등등 자원을 쪼개서 OS를 따로 설치해서  사용할수 있는데
+// 이러면 컴퓨터 성능이 저하되기 떄문에 비효율 적인 단점이 있다.
+// WSL은 이 단점을 보완하고 개발 환경을 쉽게 구축 가능하다.
+
+// WSL2를 설치해서 사용한다.
+// 윈도우에서도 Linux 명령어를 사용할수 있게 도와주는 툴(WSL2)
+
+// 제어판 -> 프로그램 -> 프로그램 및 기능 -> windows 기능 켜기/끄기
+// Liunx용 Windows 하위 시스템  or windows Subsystem for Liunx 이걸 체크
+
+// 윈도우 키 + S 검색창에 설정 검색 -> 시세템정보 -> 정보 -> 윈도우 버전 확인
+// cmd 창을 관리자 권한으로 실행
+// 명령어 붙여 넣기
+// 배포 이미지 서비스 및 관리 대한 부분
+// dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+// Virtual Machine Platfrom 기능 활성화 부분
+// dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+// 설치할 수 있는 배포 목록 확인 명령어
+// wsl -l -o
+// wsl --install -d Ubuntu
+// 터미널 창에서 우분투 접속은 wsl만 치면 되고 
+
+// wsl의 list와 version을 볼수 있는 명령어
+// wsl -l -v
+
+// wsl2로 버전없을 할 건데
+// 링크 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+// wsl --set-default-version Ubuntu 2
+// wsl --set-default-version Ubuntu 2
+
+
+
+// 21H2 
+// https://support.bluestacks.com/hc/ko/articles/360058102252-%EB%B8%94%EB%A3%A8%EC%8A%A4%ED%83%9D5-Windows-10%EC%97%90%EC%84%9C-%EA%B0%80%EC%83%81%ED%99%94-VT-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%98%EA%B8%B0
+// 가상화 활성화
+
+

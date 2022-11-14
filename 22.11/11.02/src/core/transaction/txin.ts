@@ -9,4 +9,18 @@ export class TxIn implements TxIn{
         this.txOutIndex = txOutIndex;
         this.singature = singature;
     }
+    // Txins 생성 함수
+    static createTxIns(receivedTx :any,myUTXO : IUnspentTxOut[]){
+        let sum = 0;
+        // 
+        let txins : TxIn[] = [];
+        for (let i = 0; i < myUTXO.length; i++) {
+            const {txOutId,txOutindex,amount} = myUTXO[i];
+            const item : TxIn = new TxIn(txOutId,txOutindex,receivedTx.signature);
+            txins.push(item);
+            sum += amount;
+            if(sum >= receivedTx.account) return { sum ,txins }
+        }
+        return { sum,txins }
+    }
 }

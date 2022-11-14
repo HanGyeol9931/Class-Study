@@ -11,6 +11,14 @@ export class UnspntTxOut implements IUnspentTxOut{
         this.account = account;
         this.amount = amount;
     }
+
+    // UTXO 조회 함수
+    // 인자값 전체 UTXO, 내계정
+    static getMyUnspentTxOuts(account : string, unspentTxOut : UnspntTxOut[]):UnspntTxOut[]{
+        return unspentTxOut.filter((utxo : UnspntTxOut)=>{
+            return utxo.account ===  account;
+        })
+    }
 }
 // UnspntTxOut 객체를 만들때 txOut 객체 안에 있는 내용으로 만든다.
 // UnspntTxOut 객체 안에 있는 account 속성과 amount 속성은 txOut 객체의 내용으로 구성

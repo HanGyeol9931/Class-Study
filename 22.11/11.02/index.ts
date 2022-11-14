@@ -58,9 +58,9 @@ app.use((req,res,next)=>{
 // sendTranscation 라우터
 app.post("/sendTransaction",(req,res)=>{
     try {
-        console.log(req.body);
         const receivedTx : ReceivedTx = req.body;
         Wallet.sendTransaction(receivedTx)
+        console.log(receivedTx);
     } catch (e) {
         if(e instanceof Error) console.log(e.message);
     }
