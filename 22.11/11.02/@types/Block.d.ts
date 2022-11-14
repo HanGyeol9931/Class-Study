@@ -12,7 +12,7 @@ declare interface IBlock extends IBlockHeader{
     hash : string;
     nonce : number;
     difficulty : number;
-    data : string[];
+    data : ITransaction[];
 }
 
 // 블록 생성을 하는 클래스를 만들때 블록 헤더 부분을 만들어주는 클래스를

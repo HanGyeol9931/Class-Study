@@ -12,8 +12,8 @@ export class Block extends BlockHeader implements IBlock {
     public merkleRoot: string;
     public nonce: number;
     public difficulty: number;
-    public data: string[];
-    constructor(_previousBlock : Block ,_data : string[], _adjustmentBlock : Block){
+    public data: ITransaction[];
+    constructor(_previousBlock : Block ,_data : ITransaction[], _adjustmentBlock : Block){
         // 부모 클래스 속성 가져와야 하니깐 super 사용
         super(_previousBlock);
         this.merkleRoot = Block.getMerkleRoot(_data);;
@@ -60,7 +60,7 @@ export class Block extends BlockHeader implements IBlock {
         return GENESIS
     }
     // 블록 추가
-    public static generateBlock(_previousBlock : Block ,_data : string[],_adjustmentBlock : Block) : Block{
+    public static generateBlock(_previousBlock : Block ,_data : ITransaction[],_adjustmentBlock : Block) : Block{
         const generateBlock = new Block(_previousBlock,_data,_adjustmentBlock);
         const newBlcok = Block.findBlock(generateBlock)
         return newBlcok

@@ -1,15 +1,44 @@
 import {Block} from "@core/blockChain/block";
+
 import { DIFFICULTY_ADJUSTMENT_INTERVAL } from "@core/config";
+import { Transaction } from "@core/transaction/transaction";
+import { TxIn } from "@core/transaction/txin";
+import { TxOut } from "@core/transaction/txout";
 
 // 블록의 체인
 export class Chain {
     // blockchain Block 배열의 타입을 가진 변수
     private blockchain : Block[];
+    private unSpentTxOuts : IUnspentTxOut[];
     // 처음에 생성될때 construtor로 클래스를 동적할당으로 생성 했을때
     constructor(){
         // 최초의 블록은 거의 하드코딩으로 넣어준다.
         // 생성 될때 최초 블록 하나 추가 배열에  블록 체인에 최초 블록 추가
         this.blockchain = [Block.getGENESIS()];
+        this.unSpentTxOuts = [];
+    }
+    // UTXO get 함수 (UTXO 조회 함수)
+    public getUnSpentTxOuts() : IUnspentTxOut[]{
+        return this.unSpentTxOuts;
+    }
+    // UTXO 추가 함수
+    public appendUTXO(utxo : IUnspentTxOut[]){
+        // unSpentTxOuts 배열에 utxo 값을 복사해서 배열에 추가
+        this.unSpentTxOuts.push(...utxo);
+    } 
+
+    // 마이닝 블록
+    public miningBlcok(account : string) : Failable<Block,string>{
+        // 코인베이스 트랜잭션의 내용을 임의로 만든 것
+        const txin : ITxIn = new TxIn("",this.getLatestBlock().height + 1,undefined);
+        const txout : ITxOut = new TxOut(account,50);
+        const coinbaseTransaction : Transaction = new Transaction([txin],[txout])
+        // createUTXO 함수로 UTXO에 담을 객체를 만들어 준것
+        const utxo = coinbaseTransaction.createUTXO();
+        // UTXO에 appendUTXO함수로 만든 객체를 추가
+        this.appendUTXO(utxo);
+
+        return this.addBlock([coinbaseTransaction])
     }
 
     // 현재 연결된 블록들 리스트를 학인하기 위해서 getChain 함수로 
@@ -17,7 +46,6 @@ export class Chain {
     public getChain() : Block[]{
         return this.blockchain;
     }
-
     // 현재 연결된 블록들의 갯수 길이
     // 연결된 노드의 갯수
     public getLength() : number {
@@ -34,7 +62,7 @@ export class Chain {
     // 반환값으로는 Failable<Block,string> Block 타입이랑 string타입을 반환 할수 있는 함수
     // 반환 값을 객체이고 {isError:true,value: 여기가 우리가 설정한 타입} 
     // value라는 키값이 Block 타입이나 string 타입을 허용한다.
-    public addBlock(data:string[]) : Failable<Block,string>{
+    public addBlock(data:ITransaction[]) : Failable<Block,string>{
         //getLatestBlock 함수로 마지막 블록을 가져오고
         const previousBlock  = this.getLatestBlock();
         // getLatestBlock 함수로 10본째 전
