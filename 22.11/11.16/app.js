@@ -62,7 +62,7 @@
 // 사용할때 마다 경로까지 들어가서 실행하는게 귀찮고 번거로워서 설정하는게
 // pc의 환경변수
 
-// 혅배 있는 폴더의 절대 경로 확인
+// 현재 있는 폴더의 절대 경로 확인
 // pwd
 // 절대 경로 확인
 // /root/Ethereum/go-ethereum/bulid/bin
@@ -127,7 +127,7 @@
 // 업데이트 해준다.
 
 // Account
-// 이더링무 네트워크에는 EOA, CA라느 두종류의 계정이 존재하고
+// 이더리움 네트워크에는 EOA, CA라는 두종류의 계정이 존재하고
 
 // EOA는 외부 소유 계정 (Externally Owned Account)
 // 개인키로 제어되는 계정으로 코드를 저장하지 않는다.
@@ -194,6 +194,7 @@
 // curl [-option] 페이지 주소를 쓰면 페이지의 소스가 화면에 출력된다.
 
 // npx ganache-cli로 가나쉬 실행 시켜 놓고
+
 // curl -X POST -H "content-type:application/json" --data "{id: soon}" http://localhost:3000
 
 // -X 요청 메소드

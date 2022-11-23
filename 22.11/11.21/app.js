@@ -185,8 +185,47 @@ const genesis = {
 // npm install web3
 
 // 명령어 실행후
-// geth --datadir node --http --http.addr "0.0.0.0" --http.port "포트번호" --http.corsdomain "*" \
-// --http.api "admin,miner,txpool,web3,personal,eth,net" --syncmode full --networkid "네트워크 아이디"
+// geth --datadir node --http --http.addr "127.0.0.1" --http.port "8000" --http.corsdomain "*" \
+// --http.api "admin,miner,txpool,web3,personal,eth,net" --syncmode full --networkid "1234"
 
 // 터미널 하나더 열어서 
-// geth attache http:127.0.0.1:8000
+// geth attach http://127.0.0.1:8000
+
+// 계정 생성 ( 코인베이스 어카운트 )
+// personal.newAccount()
+
+// 처음 만든 계정만 보여준다.
+// eth.coinbase
+
+// 계정 확인
+// eth.accounts
+
+// 코인 베이스 계정으로 채굴하기
+
+// 코인 베이스 계정을 마이너로 설정
+// miner.setEtherbase(eth.accounts[0]); // 마인(광산) 마이너(광부) 안에  코인베이스를 넣어줌
+
+
+// miner.start(1); start(갯수는 스레드 개수)
+// 스레드는 일해주는 인력이 많다는 뜻
+
+// 마이닝 스탑 ( percentage=100 되면 멈춤)
+// miner.stop();
+
+// 코인 베이스 계정의 채굴한 잔고를 확인 해보자
+// eth.getBalance(eth.accounts[0])
+
+// web3.fromWei(eth.getBalance(eth.accounts[0]))
+// eth.blockNumber
+
+// 코인 베이스 계정의 잔고에서 트랜잭션을 보내서 잔고를 보내보자
+// eth.sendTransaction({from: eth.accounts[0], to : eth.accounts[1],value : web3.toWei(20,"ether")});
+
+// 계정 잠금 해제하고 실행
+// geth --datadir node --http --allow-insecure-unlock --http.addr "127.0.0.1" --http.port "9000" --http.corsdomain "*" \
+//  --http.api "admin,miner,txpool,web3,personal,eth,net" --syncmode full --networkid "1234"
+
+// 트랜잭션을 보내면 txpool 트랜잭션 풀에 먼저 들어오고
+// 아직 트랜잭션이 pending 상태로 들어있고
+// 마이닝을 실행하면 트랜잭션 풀에서 트랜잭션이 처리가 된다.
+
