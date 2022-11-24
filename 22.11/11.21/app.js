@@ -229,3 +229,36 @@ const genesis = {
 // 아직 트랜잭션이 pending 상태로 들어있고
 // 마이닝을 실행하면 트랜잭션 풀에서 트랜잭션이 처리가 된다.
 
+// personal.unlockAccount(eth.coinbase)
+
+// 특정 계정 unlock 시켜주기
+// geth --datadir node --http --http.addr "127.0.0.1" --http.port 9000 --http.corsdomain "*" \
+//  --http.api "admin,eth,debug,miner,net,txpool,personal,web3" --syncmode full --networkid 1234\
+//  --port 30300 --ws --ws.addr "127.0.0.1" --ws.port 9005 --ws.origins "*" \
+//  --ws.api "admin,eth,debug,miner,net,txpool,personal,web3" \
+//  --allow-insecure-unlock --unlock "0,1" --password "./node/password.txt"
+
+// geth --datadir node --http --http.addr "127.0.0.1" --http.port 9000 --http.corsdomain "*" \
+//  --http.api "admin,eth,debug,miner,net,txpool,personal,web3" --syncmode full --networkid 1234\
+//  --port 30300 --ws --ws.addr "127.0.0.1" --ws.port 9005 --ws.origins "*" \
+//  --ws.api "admin,eth,debug,miner,net,txpool,personal,web3" \
+//  --allow-insecure-unlock --unlock "0,1" --password "./node/password.txt"
+// 띄워 쓰기 해줘야 한다.
+
+
+// 자바스크립트 콘솔창에
+// bytecode = "0x 뒤에 솔리디티로 컴파일한 bin파일의 내용을 붙여 넣어준다."
+// 자바스크립트 콘솔창에 bytecode 변수에 값을 할당
+
+// abi = 솔리디티로 컴파일한 abi파일의 내용을 붙여넣어준다.
+// 자바스크립트 콘솔창에서 abi  변수에 값을 할당
+
+// 트랜잭션 객체를 만들어준다.
+// from 키값과 data 키값으로 객체를 생성해 준다.
+// txObject = {from : eth.coinbase, data : bytecode};
+
+// eth.sendTransaction(위에서 만든 트랜잭션 객체 txObject)
+
+
+// eth.sendTransaction(트랜잭션의 해쉬값)
+
