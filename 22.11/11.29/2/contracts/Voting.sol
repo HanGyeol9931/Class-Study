@@ -2,12 +2,12 @@
 pragma solidity ^0.8.17;
 contract Voting {
     string[] public candidateList;
+    
     mapping(string => uint8) public votesReceived;
     // {
     //     "후보 이름" :  
     //     "후보 이름" : 2,
     // }
-
     constructor(string[] memory candidateNames){
         // 후보자들 초기화 배열 전달
         candidateList = candidateNames;
@@ -18,7 +18,6 @@ contract Voting {
         // 검증을 마친 후보자의 표 갯수 반환
         return votesReceived[candidate];
     }
-
     // 후보자 투표 해주는 함수
     function voteForCandidate(string memory candidate) public {
         // 있는 후보자인지 확인 하고

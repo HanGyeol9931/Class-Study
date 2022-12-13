@@ -2,6 +2,7 @@
 pragma solidity ^0.8.17;
 contract Token {
     mapping(address => uint256) public balances;
+    
     // address 속성명 , uint256 속성값 , balances 변수명의 객체
     // 여기에서 상태변수 이름을 규격에 맞게 작성 해줘야 한다.
     string public name = "gyeolToken" ; // 토큰의 이름
@@ -13,12 +14,10 @@ contract Token {
     constructor(){
         balances[msg.sender] = totalSupply; // 배포한 사람의 EOA에 총 발행량 지급
     }
-
     function balanceOf(address owner) public view returns(uint256 balance) {
         // 조회할 사람의 주소 owner
         return balances[owner] ;
     }
-
     function transfer(address to , uint256 value) public returns(bool success){
         // require() 함수의 매개변수가 true이면 실행 false면 종료
         require(balances[msg.sender] >= value);

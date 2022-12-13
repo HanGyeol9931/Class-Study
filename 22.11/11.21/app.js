@@ -233,7 +233,7 @@ const genesis = {
 
 // 특정 계정 unlock 시켜주기
 // geth --datadir node --http --http.addr "127.0.0.1" --http.port 9000 --http.corsdomain "*" \
-//  --http.api "admin,eth,debug,miner,net,txpool,personal,web3" --syncmode full --networkid 1234\
+//  --http.api "admin,eth,debug,miner,net,txpool,personal,web3" --syncmode full --networkid 7722\
 //  --port 30300 --ws --ws.addr "127.0.0.1" --ws.port 9005 --ws.origins "*" \
 //  --ws.api "admin,eth,debug,miner,net,txpool,personal,web3" \
 //  --allow-insecure-unlock --unlock "0,1" --password "./node/password.txt"
